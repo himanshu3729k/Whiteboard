@@ -90,8 +90,4 @@ This project is open for contributions. Feel free to fork the repository and sub
 ✒️ Author
 Himanshu
 
-GitHub Profile
-
-LinkedIn Profile
-
 This project was built to demonstrate Full Stack development skills.
