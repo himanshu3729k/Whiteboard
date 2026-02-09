@@ -1,70 +1,97 @@
-# Getting Started with Create React App
+🎨 Real-Time Collaborative Whiteboard
+A full-stack MERN application that enables users to draw, sketch, and collaborate on a digital whiteboard in real-time.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project demonstrates proficiency in handling WebSocket connections for low-latency communication and persisting complex data structures in MongoDB.
 
-## Available Scripts
+🚀 Key Features
+Real-Time Collaboration: Multiple users can draw on the same canvas simultaneously with updates synced instantly via Socket.io.
 
-In the project directory, you can run:
+User Authentication: Secure Signup and Login functionality using JSON Web Tokens (JWT) and Bcrypt password hashing.
 
-### `npm start`
+Persistent Canvas: Drawings are automatically saved to a MongoDB database, allowing users to reload and continue their work later.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Advanced Drawing Tools:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+✏️ Freehand Drawing (Pencil) with reliable stroke smoothing.
 
-### `npm test`
+⬜ Geometric Shapes (Rectangles, Circles).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+📏 Straight Lines & Arrows.
 
-### `npm run build`
+📝 Text annotations.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+History Management: Robust Undo/Redo functionality implemented with a custom history stack.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Hand-Drawn Aesthetic: Utilizes RoughJS to render shapes that look like hand-drawn sketches.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+🛠️ Tech Stack
+Frontend:
 
-### `npm run eject`
+React.js: Component-based UI architecture.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+RoughJS: For rendering sketch-like graphics.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Socket.io-client: For real-time bidirectional event communication.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Axios: For handling HTTP requests to the backend API.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Backend:
 
-## Learn More
+Node.js & Express.js: RESTful API and server logic.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+MongoDB & Mongoose: NoSQL database for storing user credentials and canvas vector data.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Socket.io: Handling WebSocket connections and broadcasting drawing events.
 
-### Code Splitting
+JWT & Bcrypt: For secure authentication and authorization.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+⚙️ Installation & Setup
+Follow these steps to run the project locally on your machine.
 
-### Analyzing the Bundle Size
+1. Prerequisites
+Ensure you have the following installed:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Node.js (v14 or higher)
 
-### Making a Progressive Web App
+MongoDB (Running locally or via MongoDB Atlas)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+2. Clone the Repository
+git clone https://www.google.com/search?q=https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME.git cd YOUR_REPO_NAME
 
-### Advanced Configuration
+3. Backend Setup
+Navigate to the backend folder and install dependencies:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+cd backend npm install
 
-### Deployment
+Create a .env file in the backend directory with your secrets:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+MONGO_URL=mongodb+srv://<your_username>:<your_password>@cluster0.mongodb.net/whiteboard JWT_SECRET=YourSuperSecretKey123 PORT=5000
 
-### `npm run build` fails to minify
+Start the backend server:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+npm start
+
+You should see: "✅ MongoDB Connected" and "Server running on port 5000"
+
+4. Frontend Setup
+Open a new terminal window, navigate to the frontend folder, and install dependencies:
+
+cd frontend npm install
+
+Start the React application:
+
+npm start
+
+The app should open automatically at http://localhost:3000.
+
+🤝 Contributing
+This project is open for contributions. Feel free to fork the repository and submit a Pull Request.
+
+✒️ Author
+Himanshu
+
+GitHub Profile
+
+LinkedIn Profile
+
+This project was built to demonstrate Full Stack development skills.
