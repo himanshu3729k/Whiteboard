@@ -10,5 +10,8 @@
   },
   "scripts": {
     "start": "node server.js"
+  },
+  "devDependencies": {
+    "mongodb-memory-server": "^11.2.0"
   }
 }
