@@ -27,8 +27,7 @@ connectToDB();
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        // You will add your own Vercel link here later when you deploy.
-        origin: ["http://localhost:3000"], 
+        origin: ["http://localhost:3000"],
         methods: ["GET", "POST"],
     },
 });
@@ -37,7 +36,7 @@ let canvasData = {};
 
 io.on("connection", (socket) => {
     console.log("A user connected:", socket.id);
-  
+
     socket.on("joinCanvas", async ({ canvasId }) => {
         console.log("Joining canvas:", canvasId);
         try {
@@ -52,14 +51,13 @@ io.on("connection", (socket) => {
             }
 
             const token = authHeader.split(" ")[1];
-            
-            // CHANGED: Now uses your secure .env secret
+
             const decoded = jwt.verify(token, process.env.JWT_SECRET);
             const userId = decoded.userId;
             console.log("User ID:", userId);
 
             const canvas = await Canvas.findById(canvasId);
-            
+
             // Verify ownership/sharing
             if (!canvas || (String(canvas.owner) !== String(userId) && !canvas.shared.includes(userId))) {
                 console.log("Unauthorized access.");
@@ -71,7 +69,7 @@ io.on("connection", (socket) => {
 
             socket.join(canvasId);
             console.log(`User ${socket.id} joined canvas ${canvasId}`);
-  
+
             // Load existing canvas data
             if (canvasData[canvasId]) {
                 socket.emit("loadCanvas", canvasData[canvasId]);
@@ -87,9 +85,9 @@ io.on("connection", (socket) => {
     socket.on("drawingUpdate", async ({ canvasId, elements }) => {
         try {
             canvasData[canvasId] = elements;
-    
+
             socket.to(canvasId).emit("receiveDrawingUpdate", elements);
-    
+
             const canvas = await Canvas.findById(canvasId);
             if (canvas) {
                 // Save to database
@@ -99,12 +97,11 @@ io.on("connection", (socket) => {
             console.error(error);
         }
     });
-    
+
     socket.on("disconnect", () => {
         console.log("User disconnected:", socket.id);
     });
 });
 
-// CHANGED: Use the PORT from .env, or fallback to 5000
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
