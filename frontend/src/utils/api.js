@@ -1,8 +1,9 @@
 // utils/api.js
 import axios from "axios";
 
-// CHANGED: Now points to your local backend
-const API_BASE_URL = "http://localhost:5000/api/canvas"; 
+
+// connected to render backend
+const API_BASE_URL = "https://whiteboard-backend-vjls.onrender.com/"; 
 
 const token = localStorage.getItem('whiteboard_user_token');
 const canvasId = localStorage.getItem('canvas_id');
@@ -14,7 +15,6 @@ export const updateCanvas = async (canvasId, elements) => {
       { canvasId, elements },
       {
         headers: {
-          // Ensure "Bearer" is included if your backend expects it (based on authMiddleware)
           Authorization: `Bearer ${token}`, 
         },
       }
